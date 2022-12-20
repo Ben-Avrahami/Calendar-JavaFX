@@ -2,6 +2,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
@@ -13,9 +14,6 @@ public class CalendarController {
     private GridPane daysGrid;
 
     @FXML
-    private Button loadBtn;
-
-    @FXML
     private MenuButton monthMenuBtn;
 
     @FXML
@@ -25,23 +23,21 @@ public class CalendarController {
     private TextArea textArea;
 
     @FXML
+    private Label chosenDateLabel;
+    
+    @FXML
     private MenuButton yearMenuBtn;
     
     Calendar c = Calendar.getInstance();
     
-    private boolean _monthChosen=false;
-    private boolean _yearChosen=false;
+    private boolean _monthChosen=false;//used to track if a month was already chosen
+    private boolean _yearChosen=false;//used to track if a year was already chosen
     private Button[] btns;//the array that will contain the buttons
     private final int BUTTONS_IN_A_ROW=7;
     private final int LINES=6;
     CalendarData calendarData=new CalendarData();
 
-    @FXML
-    void loadPressed(ActionEvent event) {
-    	calendarData.getData(Calendar.getInstance());
-
-    }
-
+   
     @FXML
     void monthPressed(ActionEvent event) {
     	javafx.scene.control.MenuItem btn= (javafx.scene.control.MenuItem) event.getSource();
@@ -54,7 +50,7 @@ public class CalendarController {
 
     @FXML
     void savePressed(ActionEvent event) {
-    	calendarData.setData(Calendar.getInstance(),textArea.getText());
+    	calendarData.setData(c,textArea.getText());
     }
 
     @FXML
@@ -96,6 +92,9 @@ public class CalendarController {
 		Button dayBtn= (Button) event.getSource();
     	int day=Integer.parseInt(dayBtn.getText());
     	c.set(Calendar.DAY_OF_MONTH, day);
+    	textArea.setText(calendarData.getData(c));
+    	chosenDateLabel.setText("Chosen Date: "+ c.get(Calendar.DAY_OF_MONTH)+ "/"+ c.get(Calendar.MONTH)+ "/"+ c.get(Calendar.YEAR));
+
 	}
 	
 	
