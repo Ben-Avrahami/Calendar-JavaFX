@@ -93,7 +93,10 @@ public class CalendarController {
     	int day=Integer.parseInt(dayBtn.getText());
     	c.set(Calendar.DAY_OF_MONTH, day);
     	textArea.setText(calendarData.getData(c));
-    	chosenDateLabel.setText("Chosen Date: "+ c.get(Calendar.DAY_OF_MONTH)+ "/"+ c.get(Calendar.MONTH)+ "/"+ c.get(Calendar.YEAR));
+    	int dayInMonth=c.get(Calendar.DAY_OF_MONTH);
+    	int month=c.get(Calendar.MONTH)+1;
+    	int year=c.get(Calendar.YEAR);
+    	chosenDateLabel.setText("Chosen Date: "+ dayInMonth+ "/"+ month + "/"+ year);
 
 	}
 	
