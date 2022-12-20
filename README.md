@@ -1,5 +1,3 @@
-2 / 2
-
 <h1>Calendar</h1>
 <p>This is a calendar application built using Java and JavaFX. It allows the user to select a month and year, and displays a calendar for that month. The user can also enter text for a specific date and save it, so that the text can be retrieved when the same month and year are selected.</p>
 
