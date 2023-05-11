@@ -49,6 +49,7 @@ public class CalendarController {
 		_monthChosen=true;//changes _monthChosen to true
 		numberOfDaysInMonth();//calls the numberOfDaysInMonth Function
 	}
+
 	/*
 	 * This method is called when the save button is pressed
 	 */
@@ -69,6 +70,7 @@ public class CalendarController {
 		c.set(Calendar.YEAR, year);//sets the calendar to the chosen Year
 		numberOfDaysInMonth();//calls the numberOfDaysInMonth Function
 	}
+
 	/*
 	 * This method checks how many days are in the chosen month and year and calls createDaysBtns() to create the buttons according to the amount of days in the month and the day the month starts in
 	 */
@@ -78,6 +80,7 @@ public class CalendarController {
 			createDaysBtns(daysInMonth);
 		}
 	}
+
 	/*
 	 * This method creates the buttons according to the amount of days in the month and the day the month starts in
 	 */
@@ -96,8 +99,8 @@ public class CalendarController {
 				}	
 			}); 
 		}
-
 	}
+
 	/*
 	 * This method is called when a day is Pressed
 	 */
@@ -110,8 +113,5 @@ public class CalendarController {
 		int month=c.get(Calendar.MONTH)+1;
 		int year=c.get(Calendar.YEAR);
 		chosenDateLabel.setText("Chosen Date: "+ dayInMonth+ "/"+ month + "/"+ year);//Sets the text of the label that shows the chosen date to show the date selected
-
 	}
-
-
 }
